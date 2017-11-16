@@ -1,0 +1,18 @@
+#define INPIN 7
+#define OUTPIN 13
+
+// the setup function runs once when you press the reset or power the board
+
+void setup() {
+  // inittialization digital pin LED_BUILTIN as an output.
+  pinMode(OUTPIN, OUTPUT);
+  pinMode(INPIN, OUTPUT);
+
+}
+// the loop function runs over and over again forever
+void loop() {
+  bool button;
+  button = digitalRead(INPIN);
+  digitalWrite(OUTPIN, button);  // turn the LED on (HIGH is the voltage level)
+
+}
