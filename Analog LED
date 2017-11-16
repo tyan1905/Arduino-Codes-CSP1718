@@ -1,0 +1,29 @@
+#define BLUE 5
+#define GREEN 6 
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  Serial.begin(9100);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int joystick;
+  int blue, green;
+  joystick = analogRead(A0);
+  if (joystick > 512) {
+    green = map (joystick, 0, 1024, 0, 255);
+    blue = 0;
+
+  }
+  else {
+    blue = map(joystick, 0, 512, -255, 0);
+    blue = -1 * blue;
+    green = 0;
+  }
+  analogWrite(BLUE, blue);
+  analogWrite(GREEN, green);
+  Serial.println(joystick);
+}
